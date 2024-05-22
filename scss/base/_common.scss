@@ -1,0 +1,255 @@
+section {
+	margin: 120px 0px;
+	position: relative;
+}
+
+// Text ========================================================================================================================================================
+h1 {
+}
+
+h2 {
+}
+
+h3 {
+}
+
+h4 {
+}
+
+h5 {
+}
+
+h6 {
+}
+
+p {
+}
+
+// Button ========================================================================================================================================================
+.rs-btn {
+	position: relative;
+	overflow: hidden;
+	-webkit-appearance: button;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	transition: all 0.3s ease 0s;
+}
+
+.form {
+	// .form__block
+	&__block {
+	}
+
+	// .form__row
+	&__row {
+		@media (min-width: 991.98px) {
+			display: flex;
+			justify-content: space-between;
+
+			.form__line {
+				flex: 1 1 50%;
+				margin-bottom: 0px;
+
+				&:not(:last-child) {
+					margin-right: 12px;
+				}
+			}
+		}
+	}
+
+	// .form__line
+	&__line {
+		width: 100%;
+		position: relative;
+		margin-bottom: 15px;
+
+		&._form-error {
+			.form__right {
+				opacity: 0;
+				visibility: hidden;
+			}
+		}
+
+		&._form-right {
+			.form__right {
+				opacity: 1;
+				visibility: visible;
+			}
+		}
+
+		&._form-valid {
+		}
+
+		&._form-focus {
+			.form__right {
+				opacity: 0;
+				visibility: hidden;
+			}
+		}
+	}
+
+	&__error {
+		margin: 3px 0 0 25px;
+		color: #fff;
+	}
+
+	&__right {
+		position: absolute;
+		right: 39px;
+		top: 27px;
+		width: 12px;
+		height: 10px;
+		background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='10' viewBox='0 0 12 10' fill='none'%3e%3cpath d='M10.2929 1.29296L3.99892 7.58696C3.99992 7.58596 1.70692 5.29296 1.70692 5.29296C1.51832 5.1108 1.26571 5.01001 1.00352 5.01229C0.741321 5.01456 0.490509 5.11973 0.305101 5.30514C0.119692 5.49055 0.0145233 5.74136 0.0122448 6.00356C0.00996641 6.26575 0.110761 6.51836 0.292919 6.70696L2.58692 9.00096C3.36692 9.78096 4.63692 9.77796 5.41292 9.00096L11.7069 2.70696C11.8024 2.61471 11.8786 2.50437 11.931 2.38236C11.9834 2.26036 12.011 2.12914 12.0122 1.99636C12.0133 1.86358 11.988 1.7319 11.9377 1.60901C11.8875 1.48611 11.8132 1.37446 11.7193 1.28056C11.6254 1.18667 11.5138 1.11242 11.3909 1.06214C11.268 1.01186 11.1363 0.986555 11.0035 0.987709C10.8707 0.988862 10.7395 1.01645 10.6175 1.06886C10.4955 1.12127 10.3852 1.19745 10.2929 1.29296Z' fill='%237CB521'/%3e%3c/svg%3e");
+		background-repeat: no-repeat;
+		background-size: contain;
+		background-position: center;
+		opacity: 0;
+		visibility: hidden;
+		pointer-events: none;
+		user-select: none;
+		transition: all 0.3s ease 0s;
+
+		@media (max-width: 991.98px) {
+			top: 20px;
+		}
+	}
+
+	&__footer {
+		margin-top: 25px;
+
+		@media (min-width: 991.98px) {
+			display: flex;
+			align-items: center;
+		}
+
+		@media (max-width: 991.98px) {
+			margin-top: 20px;
+		}
+
+		.form__button {
+			margin-top: 0px;
+
+			@media (min-width: 991.98px) {
+				min-width: 272px;
+
+				@media (max-width: 1439.98px) {
+					min-width: 200px;
+				}
+			}
+		}
+
+		.form__agreement {
+			flex-grow: 1;
+
+			@media (min-width: 991.98px) {
+				margin-top: 0px;
+				margin-left: 30px;
+			}
+		}
+	}
+
+	// .form__button
+	&__button {
+		margin-top: 24px;
+
+		.rs-btn {
+			width: 100%;
+			padding-top: 19px;
+			padding-bottom: 19px;
+			border-radius: 50px;
+
+			@media (max-width: 991.98px) {
+				padding-top: 15px;
+				padding-bottom: 15px;
+			}
+		}
+	}
+
+	// .form__agreement
+	&__agreement {
+		font-weight: 400;
+		font-size: 12px;
+		// line-height: 14px;
+		line-height: 120%;
+		color: var(--text-color);
+		margin-top: 25px;
+
+		@media (max-width: 991.98px) {
+			margin-top: 16px;
+		}
+
+		a {
+			text-decoration: underline;
+			text-underline-offset: 2px;
+			text-decoration-skip-ink: none;
+
+			@media (any-hover: hover) {
+				&:hover {
+					text-decoration: none;
+				}
+			}
+		}
+	}
+}
+
+.rs-input {
+	outline: none;
+	width: 100%;
+	transition: 0.3s ease 0s;
+	transition-property: background-color, border-color;
+
+	&::placeholder {
+		color: var(--text-color);
+	}
+
+	&._form-focus {
+	}
+
+	&._form-error {
+	}
+
+	&._form-right {
+	}
+}
+
+.rs-input-clear {
+	position: absolute;
+	opacity: 0;
+	visibility: hidden;
+	pointer-events: none;
+	top: 27px;
+	right: 20px;
+	width: 10px;
+	height: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	@media (max-width: 991.98px) {
+		top: 20px;
+	}
+
+	&._clear-active {
+		opacity: 1;
+		visibility: visible;
+		pointer-events: unset;
+	}
+
+	svg {
+		width: 100%;
+		height: 100%;
+	}
+}
+
+textarea.rs-input {
+	resize: vertical;
+	min-height: 252px;
+
+	@media (max-width: 991.98px) {
+		min-height: 142px;
+	}
+}
+
+// Block  ========================================================================================================================================================

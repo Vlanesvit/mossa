@@ -449,13 +449,13 @@ p {
   border: 1px solid #fe003e;
 }
 .form__line._form-error:after {
-  background-image: url("../../img/icons/red.svg");
+  background-image: url("../img/icons/red.svg");
 }
 .form__line._form-right:after {
-  background-image: url("../../img/icons/green.svg");
+  background-image: url("../img/icons/green.svg");
 }
 .form__line._form-valid:after {
-  background-image: url("../../img/icons/green.svg");
+  background-image: url("../img/icons/green.svg");
 }
 .form__line._form-focus:after {
   background-image: unset;

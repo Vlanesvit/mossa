@@ -1000,16 +1000,6 @@ const addCursorMove = (hoveredElement, selectedElement) => {
 		}
 	});
 }
-// addCursorHover(".rs-slider-block__slider", ".rs-slider-block .cursor", "cursor__active");
-// addCursorMove(".rs-slider-block__slider", ".rs-slider-block .cursor__circle")
-// addCursorDrag(".rs-slider-block__slider", ".rs-slider-block .cursor__circle", "cursor__circle__drag")
-
-/* ====================================
-Инициализация галереи
-==================================== */
-Fancybox.bind("[data-fancybox]", {
-	// Your custom options
-});
 
 /* ====================================
 Добавить картинкам draggable="false"
@@ -1093,9 +1083,9 @@ let bodyUnlock = (delay = 300) => {
 		setTimeout(() => {
 			for (let index = 0; index < lock_padding.length; index++) {
 				const el = lock_padding[index];
-				el.style.paddingRight = '0px';
+				// el.style.paddingRight = '0px';
 			}
-			body.style.paddingRight = '0px';
+			// body.style.paddingRight = '0px';
 			document.documentElement.classList.remove("lock");
 		}, delay);
 		bodyLockStatus = false;
@@ -1110,9 +1100,9 @@ let bodyLock = (delay = 300) => {
 		let lock_padding = document.querySelectorAll("[data-lp]");
 		for (let index = 0; index < lock_padding.length; index++) {
 			const el = lock_padding[index];
-			el.style.paddingRight = window.innerWidth - document.querySelector('.wrapper').offsetWidth + 'px';
+			// el.style.paddingRight = window.innerWidth - document.querySelector('.wrapper').offsetWidth + 'px';
 		}
-		body.style.paddingRight = window.innerWidth - document.querySelector('.wrapper').offsetWidth + 'px';
+		// body.style.paddingRight = window.innerWidth - document.querySelector('.wrapper').offsetWidth + 'px';
 		document.documentElement.classList.add("lock");
 
 		bodyLockStatus = false;

@@ -12,6 +12,7 @@ function menuFunction() {
 
 			// Бургер-кнопка
 			const menuBurgerBtns = menu.querySelectorAll('.icon-menu');
+			const menuBurgerClose = menu.querySelectorAll('.menu__close');
 			if (menuBurgerBtns) {
 				menuBurgerBtns.forEach(btn => {
 					// Открываем меню
@@ -21,18 +22,28 @@ function menuFunction() {
 						} else {
 							menuOpen("menu-open")
 						}
-
+						
+						menuItemDropdownsMenu.forEach(menu => {
+							_slideUp(menu, 500);
+						});
 						menuItemDropdowns.forEach(item => {
 							item.classList.remove('_open-menu');
 						});
+					});
+				});
+			}
+			if (menuBurgerClose) {
+				menuBurgerClose.forEach(btn => {
+					// Открываем меню
+					btn.addEventListener("click", function (e) {
+						menuClose("menu-open");
 
-						if (menuChilds) {
-							menuChilds.forEach(menuChilds => {
-								menuChilds.classList.remove("_open-dropmenu")
-							});
-						}
-
-						menuClose("dropmenu-open");
+						menuItemDropdownsMenu.forEach(menu => {
+							_slideUp(menu, 500);
+						});
+						menuItemDropdowns.forEach(item => {
+							item.classList.remove('_open-menu');
+						});
 					});
 				});
 			}
@@ -222,7 +233,7 @@ function headerScroll() {
 	window.addEventListener('load', function () {
 		headerClassAdd()
 
-		if (!header.classList.contains('_header-white')) {
+		if (!header.classList.contains('_header-position-on-block')) {
 			headerTag.style.height = header.clientHeight + 'px';
 		}
 	})
@@ -230,9 +241,95 @@ function headerScroll() {
 	window.addEventListener('resize', function () {
 		headerClassAdd()
 
-		if (!header.classList.contains('_header-white')) {
+		if (!header.classList.contains('_header-position-on-block')) {
 			headerTag.style.height = header.clientHeight + 'px';
 		}
 	})
 }
 headerScroll()
+
+/* ====================================
+Поиск
+==================================== */
+function search() {
+	const searchs = document.querySelectorAll('.search');
+
+	const searchModal = document.querySelector('.search-modal');
+	const searchShows = document.querySelectorAll('.rs-header__search-link');
+
+	searchs.forEach(search => {
+		const searchSubmit = search.querySelector('.search__submit')
+		const searchClear = search.querySelector('.search__clear');
+		const searchInput = search.querySelector('.search__input')
+		const searchForm = search.querySelector('.search__form');
+
+		searchShows.forEach(searchShow => {
+			// Показать поиск
+			searchShow.addEventListener('click', function (e) {
+				e.preventDefault();
+				searchOpen()
+				putСursorInInput(searchInput);
+			})
+		});
+
+		// Закрываем поиск по оверлею
+		searchModal.addEventListener('click', function (e) {
+			const target = e.target;
+			// Делегируем событие
+			if (target.classList.contains('search__overlay')) {
+				searchClose()
+			}
+		});
+
+		// Отправка формы
+		if (searchSubmit) {
+			searchSubmit.addEventListener('click', function (e) {
+				e.preventDefault();
+				if (searchInput.value != '') {
+					searchForm.submit();
+				}
+			})
+		}
+
+		// При вводе появляется кнопка отчистки
+		if (searchInput) {
+			searchInput.addEventListener('input', function (e) {
+				searchClear.style.display = "block";
+			})
+		}
+
+		// Очистить инпут
+		if (searchClear) {
+			searchClear.addEventListener('click', function (e) {
+				searchInput.value = '';
+				searchClear.style.display = "none";
+				putСursorInInput(searchInput);
+			})
+		}
+	});
+
+	// Вспомогательные функции ========================================================================================================================================================
+	// Поставить курсор в инпут после клика
+	function putСursorInInput(input) {
+		setTimeout(function () {
+			input.focus()
+		}, 100);
+	}
+	// Функции открытия/закрытия поиска с блокировкой скролла
+	function searchOpen() {
+		bodyLock();
+		document.documentElement.classList.add("search-open");
+	}
+	function searchClose() {
+		bodyUnlock();
+		document.documentElement.classList.remove("search-open");
+	}
+	function searchToggle() {
+		bodyLockToggle();
+		document.documentElement.classList.toggle("search-open");
+	}
+	// Функции вызова курсора
+	addCursorHover(".search__overlay", ".cursor", "cursor__active");
+	addCursorMove(".search__overlay", ".cursor__circle")
+}
+search()

@@ -1,0 +1,38 @@
+.rs-logo {
+	// .rs-logo__container
+
+	&__container {
+	}
+
+	// .rs-logo__slider
+
+	&__slider {
+		height: 55px;
+
+		@media (max-width: 991.98px) {
+			height: 31px;
+		}
+	}
+
+	// .rs-logo__swiper
+	&__swiper {
+		height: 100%;
+		transition-timing-function: linear !important;
+	}
+
+	// .rs-logo__slide
+
+	&__slide {
+		width: auto;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+		}
+	}
+}

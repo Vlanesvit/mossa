@@ -34,7 +34,8 @@
 html {
 	scroll-behavior: smooth;
 	scroll-padding-top: 100px;
-	// scrollbar-gutter: stable;
+	scrollbar-gutter: stable;
+	overflow-y: scroll;
 }
 
 html,

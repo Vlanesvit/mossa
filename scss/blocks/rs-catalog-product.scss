@@ -37,9 +37,20 @@
 		width: 100%;
 		height: 100%;
 		position: relative;
+		border-radius: 140px 10px;
+		background-color: transparent;
+		transition: all 0.3s ease 0s;
 
 		@media (any-hover: hover) {
 			&:hover {
+				background-color: #f9f9f9;
+
+				&:before,
+				&:after {
+					opacity: 1;
+					visibility: visible;
+				}
+
 				.rs-catalog-product__img {
 					img {
 						&:last-child {
@@ -53,6 +64,31 @@
 					}
 				}
 			}
+		}
+
+		&:before,
+		&:after {
+			content: "";
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 100%;
+			height: 100%;
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: contain;
+			opacity: 0;
+			visibility: hidden;
+			transition: all 0.3s ease 0s;
+		}
+
+		&::before {
+			background-image: url("../img/blocks/catalog/catalog-product__border-1.svg");
+		}
+
+		&::after {
+			background-image: url("../img/blocks/catalog/catalog-product__border-2.svg");
 		}
 	}
 

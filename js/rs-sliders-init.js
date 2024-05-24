@@ -176,13 +176,22 @@ function initSliders() {
 				loop: true,
 
 				// Курсор перетаскивания
-				grabCursor: true,
+				// grabCursor: true,
 
 				// Анимация переключения
 				// effect: 'fade',
 
-				slidesPerView: 'auto',
-				spaceBetween: 110,
+				slidesPerView: 9,
+
+				on: {
+					init: function loopBagFix(swiper) {
+						for (let i = 0; i < 10; i++) {
+							swiper.slides.forEach((slide) => {
+								swiper.wrapperEl.append(slide.cloneNode(true))
+							})
+						}
+					},
+				},
 
 				// Брейкпоинты(адаптив)
 				// Шрина экрана
